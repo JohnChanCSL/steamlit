@@ -12,7 +12,7 @@ now = datetime.now()
 now = str(now)[:10]
 # st.set_page_config(page_title="Doulton Hong Kong", layout="wide")
 st.set_page_config(page_title="Doulton Hong Kong")
-image = Image.open('C:\\Users\\cckjo\\Desktop\\Doulton\\Doulton_Logo.png')
+image = Image.open('')
 col1, col2 = st.columns([0.8, 0.2])
 with col1:
     st.title("Doulton Hong Kong - Invoice Upload System")
@@ -35,7 +35,7 @@ with st.form('Form',clear_on_submit = True):
         else:
             time.sleep(0.5)
             # create folder
-            parent_dir = 'C:\\Users\\cckjo\\Desktop\\Doulton\\'
+            parent_dir = ''
             directory = str(phone_number)
             export_path = os.path.join(parent_dir, directory)
             if not path.exists(export_path):
@@ -55,7 +55,7 @@ with st.form('Form',clear_on_submit = True):
                     with open(save_path, mode='wb') as w:
                         w.write(photo.getvalue())
             # to excel
-            df_old = pd.read_excel('C:\\Users\\cckjo\\Desktop\\DoultonHK.xlsx')
+            df_old = pd.read_excel('')
             df_old['Phone Number'] = df_old['Phone Number'].astype(str)
             df_new = pd.DataFrame(
                 {'Customer Name': [str(name)], 'Phone Number': [str(phone_number)], 'Upload Date': [str(now)]})
